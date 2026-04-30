@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Survival Score | Urban Resource Accessibility</title>
+    <meta name="description" content="An interactive exploration of essential urban resource accessibility for the homeless population in New York City.">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <header id="main-header">
+        <nav>
+            <div class="logo">SURVIVAL<span>SCORE</span></div>
+            <ul>
+                <li><a href="#story">The Story</a></li>
+                <li><a href="#map-section">Interactive Map</a></li>
+                <li><a href="notebooks/explainer_notebook.html">Explainer Notebook</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Navigating the Concrete Jungle</h1>
+            <p>Quantifying the accessibility of essential urban resources for NYC's most vulnerable population.</p>
+            <a href="#story" class="btn">Explore the Data</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <main id="story">
+        <section class="scene" id="intro-scene">
+            <div class="content-wrapper">
+                <h2>A City of Contrast</h2>
+                <p>New York City is a hub of immense wealth and resources, yet thousands struggle daily to find basic necessities like clean water, a safe place to sleep, or even a public restroom.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value">510k+</span>
+                        <span class="stat-label">Data Points Analyzed</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">7+</span>
+                        <span class="stat-label">Essential Datasets</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scene" id="score-explanation">
+            <div class="content-wrapper">
+                <h2>Defining the "Survival Score"</h2>
+                <p>Our project combines multiple factors—from drinking fountains to shelter violations—to create a unified metric for urban survival.</p>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Accessibility (+)</h3>
+                        <p>Proximity to drop-in centers, public toilets, and charging kiosks.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Risk (-)</h3>
+                        <p>Shelter safety violations and localized drug-related incidents.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map-section">
+            <div class="map-controls">
+                <h2>Interactive Survival Map</h2>
+                <p>Explore the spatial distribution of resources and the resulting survival scores across the five boroughs.</p>
+                <div class="filter-groups">
+                    <!-- Filters will be injected here via JS -->
+                </div>
+            </div>
+            <div id="map-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NYC Survival Score Project | Built for DTU Final Project</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
