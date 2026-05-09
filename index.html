@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Redirecting to site...</title>
+    <meta http-equiv="refresh" content="0; url=website/" />
+    <style>
+      html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+      .wrap{height:100%;display:flex;align-items:center;justify-content:center;background:#071018;color:#e6eef6}
+      .card{max-width:560px;padding:24px;border-radius:12px;background:rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.6);text-align:center}
+      a{color:#ffd85c;font-weight:700}
+    </style>
+    <script>
+      // JS fallback redirect for browsers that ignore meta-refresh
+      window.location.replace('website/');
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h2>Opening the site…</h2>
+        <p>If you are not redirected automatically, <a href="website/">click here to open the site</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>
