@@ -3,264 +3,554 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>NYC Survival Score | Urban Resource Accessibility</title>
-  <meta name="description" content="An interactive exploration of essential urban resource accessibility in New York City." />
+
+  <meta
+    name="description"
+    content="An interactive exploration of essential urban resource accessibility in New York City."
+  />
 
   <link rel="stylesheet" href="css/index.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
+
+  <!-- ========================= -->
+  <!-- Header -->
+  <!-- ========================= -->
+
   <header id="main-header">
+
     <nav>
-      <a href="#hero" class="logo">HUNGER<span>GAMES</span></a>
+
+      <a href="#hero" class="logo">
+        HUNGER<span>GAMES</span>
+      </a>
+
       <ul>
         <li><a href="#story">Story</a></li>
         <li><a href="#data">Data</a></li>
         <li><a href="#score-explanation">Score</a></li>
         <li><a href="#resource-chart-section">Chart</a></li>
-        <li><a href="#map-section">Map</a></li>
-        <li><a href="notebooks/explainer_notebook.html">Notebook</a></li>
+        <li><a href="#map-section">Maps</a></li>
+
+        <li>
+          <a href="notebooks/explainer_notebook.html">
+            Notebook
+          </a>
+        </li>
       </ul>
+
     </nav>
+
   </header>
 
+
+  <!-- ========================= -->
+  <!-- Hero -->
+  <!-- ========================= -->
+
   <section id="hero">
+
     <div class="hero-overlay"></div>
+
     <div class="hero-content">
-      <p class="eyebrow">NYC Open Data Final Project</p>
-      <h1>Surviving the Concrete Jungle</h1>
+
+      <p class="eyebrow">
+        NYC Open Data Final Project
+      </p>
+
+      <h1>
+        Surviving the Concrete Jungle
+      </h1>
+
       <p>
-        A data story about access to toilets, water, shelter, Wi-Fi, and safety-related urban resources
+        An interactive spatial analysis of urban survival infrastructure,
+        resource accessibility, and environmental vulnerability
         across New York City.
       </p>
-      <a href="#story" class="btn">Explore the Story</a>
+
+      <a href="#story" class="btn">
+        Explore the Story
+      </a>
+
     </div>
+
   </section>
 
+
+  <!-- ========================= -->
+  <!-- Main -->
+  <!-- ========================= -->
+
   <main id="story">
+
+    <!-- ========================= -->
+    <!-- Intro -->
+    <!-- ========================= -->
+
     <section class="scene" id="intro-scene">
+
       <div class="content-wrapper">
-        <h2>A City of Contrast</h2>
+
+        <h2>
+          A City of Contrast
+        </h2>
+
         <p>
-          New York City contains immense wealth, infrastructure, and public services. At the same time,
-          thousands of people without stable housing must navigate the city day by day to find basic
-          necessities: clean water, toilets, safe places to rest, connectivity, and support services.
+          New York City contains immense wealth, infrastructure,
+          and public services. At the same time, thousands of people
+          without stable housing must navigate the city day by day
+          to find basic necessities: clean water, toilets,
+          safe places to rest, connectivity, and support services.
         </p>
+
         <p>
-          This project asks a simple question: <strong>where in NYC is it easiest — or hardest — to access
-          the resources needed to get through the day?</strong>
+          This project asks a simple question:
+          <strong>
+            where in NYC is it easiest — or hardest —
+            to access the resources needed to get through the day
+            during periods of urban stress?
+          </strong>
         </p>
 
         <div class="stats-grid">
+
           <div class="stat-card">
             <span class="stat-value">510k+</span>
             <span class="stat-label">Approx. records analyzed</span>
           </div>
+
           <div class="stat-card">
             <span class="stat-value">7</span>
             <span class="stat-label">Open datasets combined</span>
           </div>
+
           <div class="stat-card">
             <span class="stat-value">5</span>
             <span class="stat-label">NYC boroughs compared</span>
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Floating callouts (visual accents) -->
+
+    <!-- ========================= -->
+    <!-- Floating Callouts -->
+    <!-- ========================= -->
+
     <div id="callout-shelter" class="callout callout--shelter">
+
       <div class="callout-icon">🛏️</div>
+
       <div class="callout-body">
         <div class="callout-title">Shelter</div>
         <div class="callout-sub">0.3 mi</div>
       </div>
+
       <div class="callout-arrow">→</div>
+
     </div>
 
+
     <div id="callout-toilet" class="callout callout--toilet">
+
       <div class="callout-icon">🚻</div>
+
       <div class="callout-body">
         <div class="callout-title">Public Toilet</div>
         <div class="callout-sub">0.2 mi</div>
       </div>
+
       <div class="callout-arrow">→</div>
+
     </div>
 
+
     <div id="callout-water" class="callout callout--water">
+
       <div class="callout-icon">💧</div>
+
       <div class="callout-body">
         <div class="callout-title">Drinking Water</div>
         <div class="callout-sub">0.1 mi</div>
       </div>
+
       <div class="callout-arrow">→</div>
+
     </div>
 
+
+    <!-- ========================= -->
+    <!-- Data -->
+    <!-- ========================= -->
+
     <section class="scene" id="data">
+
       <div class="content-wrapper">
-        <h2>The Data Behind the Project</h2>
+
+        <h2>
+          The Data Behind the Project
+        </h2>
+
         <p>
-          We combine public datasets from NYC Open Data to study survival-related infrastructure:
+          We combine public datasets from NYC Open Data to study
+          survival-related infrastructure:
           resources that can help people meet immediate needs in public space.
         </p>
 
         <div class="dataset-grid">
+
           <div class="dataset-card">
             <h3>Drop-in Centers</h3>
             <p>Locations offering meals, showers, medical help, and rest space.</p>
           </div>
+
           <div class="dataset-card">
             <h3>Public Toilets</h3>
             <p>Operational automatic public toilets across the city.</p>
           </div>
+
           <div class="dataset-card">
             <h3>Drinking Fountains</h3>
             <p>Outdoor fountains in NYC parks with geographic coordinates.</p>
           </div>
+
           <div class="dataset-card">
             <h3>LinkNYC Kiosks</h3>
             <p>Free Wi-Fi, charging, calls, 911 button, and city service access.</p>
           </div>
+
           <div class="dataset-card">
             <h3>Shelter Repair Scorecard</h3>
             <p>Shelter buildings and reported repair violations.</p>
           </div>
+
           <div class="dataset-card">
             <h3>RHY Daily Census</h3>
             <p>Daily counts of beds and vacancies for runaway and homeless youth services.</p>
           </div>
+
           <div class="dataset-card">
             <h3>Drug-related Crime</h3>
             <p>NYPD reports used as a local risk indicator.</p>
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- ========================= -->
+    <!-- Survival Score -->
+    <!-- ========================= -->
+
     <section class="scene" id="score-explanation">
+
       <div class="content-wrapper">
-        <h2>Defining the Survival Score</h2>
+
+        <h2>
+          Defining the Survival Score
+        </h2>
+
         <p>
-          The Survival Score is a spatial accessibility index. It does not measure homelessness directly.
-          Instead, it estimates how well different parts of NYC are served by nearby survival-related
-          resources while accounting for nearby risk indicators.
+          The Survival Score is a spatial accessibility index.
+          It does not measure homelessness directly.
+          Instead, it estimates how well different parts of NYC
+          are served by nearby survival-related resources
+          while accounting for nearby risk indicators.
         </p>
 
         <div class="formula-box">
-          <h3>Survival Score = 70% Resource Access − 30% Risk Exposure</h3>
+
+          <h3>
+            Survival Score = 70% Resource Access − 30% Risk Exposure
+          </h3>
+
           <p>
-            Resource access increases with proximity to drinking fountains, public toilets, drop-in centers,
-            and LinkNYC kiosks. Risk exposure increases with nearby drug-related crime hotspots and shelter
-            quality issues.
+            Resource accessibility increases with spatial proximity
+            to drinking fountains, public toilets, drop-in centers,
+            and LinkNYC kiosks.
+            Risk exposure increases with nearby drug-related crime hotspots
+            and shelter quality issues.
           </p>
+
         </div>
 
         <div class="grid-container">
+
           <div class="grid-item positive">
-            <h3>Access factors</h3>
-            <p>Water, toilets, Wi-Fi, charging, drop-in centers, and other public support infrastructure.</p>
+
+            <h3>Access Factors</h3>
+
+            <p>
+              Water, toilets, Wi-Fi, charging,
+              drop-in centers, and other public support infrastructure.
+            </p>
+
           </div>
+
           <div class="grid-item negative">
-            <h3>Risk factors</h3>
-            <p>Drug-related crime hotspots and shelter repair violations used as indicators of local strain.</p>
+
+            <h3>Risk Factors</h3>
+
+            <p>
+              Drug-related crime hotspots and shelter repair violations
+              used as proxies for environmental and social vulnerability.
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- ========================= -->
+    <!-- Findings -->
+    <!-- ========================= -->
+
     <section class="scene" id="findings">
+
       <div class="content-wrapper">
-        <h2>What the Data Reveals</h2>
+
+        <h2>
+          What the Data Reveals
+        </h2>
+
         <p>
-          Survival infrastructure is not evenly distributed. Some areas have dense clusters of public
-          amenities, while others have large gaps between basic services. This means that a person’s ability
-          to access help may depend heavily on where they are in the city.
+          Survival infrastructure is not evenly distributed.
+          Some areas have dense clusters of public amenities,
+          while others have large gaps between basic services.
+          This means that a person’s ability to access help
+          may depend heavily on where they are in the city.
         </p>
 
         <div class="insight-grid">
+
           <div class="insight-card">
-            <h3>Resource density is unequal</h3>
+
+            <h3>
+              Resource density is unequal
+            </h3>
+
             <p>
-              Public amenities are concentrated in specific parts of the city, creating stronger access in
-              some neighborhoods and weaker access in others.
+              Public amenities are concentrated in specific parts of the city,
+              creating stronger access in some neighborhoods
+              and weaker access in others.
             </p>
+
           </div>
 
           <div class="insight-card">
-            <h3>Distance matters</h3>
+
+            <h3>
+              Distance matters
+            </h3>
+
             <p>
-              A city can contain many resources overall while still leaving specific areas underserved if
-              resources are too far apart.
+              A city can contain many resources overall while still leaving
+              specific areas underserved if resources are too far apart.
             </p>
+
           </div>
 
           <div class="insight-card">
-            <h3>Risk and access overlap</h3>
+
+            <h3>
+              Risk and access overlap
+            </h3>
+
             <p>
-              Some locations combine lower access to basic resources with higher exposure to risk indicators,
+              Some locations combine lower access to basic resources
+              with higher exposure to risk indicators,
               producing lower Survival Scores.
             </p>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- ========================= -->
+    <!-- Chart -->
+    <!-- ========================= -->
+
     <section class="scene" id="resource-chart-section">
+
       <div class="content-wrapper">
-        <h2>Resource Distribution by Borough</h2>
+
+        <h2>
+          Resource Distribution by Borough
+        </h2>
+
         <p>
-          The chart below compares the number of drinking fountains, public toilets, drop-in centers,
-          and LinkNYC kiosks across boroughs. Because the dataset sizes differ greatly, the y-axis uses
-          a logarithmic scale.
+          The chart below compares the number of drinking fountains,
+          public toilets, drop-in centers,
+          and LinkNYC kiosks across boroughs.
+          Because the dataset sizes differ greatly,
+          the y-axis uses a logarithmic scale.
         </p>
 
         <div id="resourceChart"></div>
+
       </div>
+
     </section>
 
+
+    <!-- ========================= -->
+    <!-- Infrastructure Explorer -->
+    <!-- ========================= -->
+
     <section id="map-section">
+
       <div class="map-controls">
-        <h2>Interactive Survival Map</h2>
+
+        <h2>
+          Infrastructure & Risk Explorer
+        </h2>
+
         <p>
-          Explore the spatial distribution of resources and risk indicators. Use the map controls to turn
-          layers on and off.
+          Explore the spatial distribution of survival-related infrastructure
+          and environmental risk indicators across New York City.
+          Toggle layers to investigate fountains,
+          toilets, shelters, LinkNYC kiosks,
+          and crime hotspots.
         </p>
+
       </div>
 
       <div class="map-wrapper">
+
         <iframe
           src="final_survival_map.html"
           id="survival-map-frame"
-          title="Interactive NYC Survival Map"></iframe>
+          title="Infrastructure & Risk Explorer">
+        </iframe>
+
       </div>
+
     </section>
+
+
+    <!-- ========================= -->
+    <!-- Survival Score Map -->
+    <!-- ========================= -->
+
+    <section id="survival-score-map-section">
+
+      <div class="map-controls">
+
+        <h2>
+          NYC Survival Score Map
+        </h2>
+
+        <p>
+          This map visualizes spatial differences
+          in survival accessibility across New York City
+          using the composite Survival Score.
+          Higher scores indicate stronger access
+          to nearby public resources,
+          while lower scores indicate areas
+          with fewer nearby services
+          and higher environmental strain.
+        </p>
+
+      </div>
+
+      <div class="map-wrapper">
+
+        <iframe
+          src="survival_score_map.html"
+          id="survival-score-map-frame"
+          title="NYC Survival Score Map">
+        </iframe>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Limitations -->
+    <!-- ========================= -->
 
     <section class="scene" id="limitations">
+
       <div class="content-wrapper">
-        <h2>Limitations</h2>
+
+        <h2>
+          Limitations
+        </h2>
+
         <p>
-          The Survival Score is not a direct measure of homelessness or lived experience. It does not capture
-          opening hours, crowding, safety perception, accessibility, service quality, policing, weather,
-          or whether someone is actually allowed to use a resource.
+          The Survival Score is not a direct measure
+          of homelessness or lived experience.
+          It does not capture opening hours,
+          crowding, safety perception,
+          accessibility, service quality,
+          policing, weather,
+          or whether someone is actually allowed
+          to use a resource.
         </p>
+
         <p>
-          Still, it helps reveal an important urban question: where does the city provide enough basic
-          infrastructure, and where might vulnerable people face longer distances between essential services?
+          Still, it helps reveal an important urban question:
+          where does the city provide enough
+          basic infrastructure,
+          and where might vulnerable people face
+          longer distances between essential services?
         </p>
+
       </div>
+
     </section>
+
   </main>
 
+
+  <!-- ========================= -->
+  <!-- Footer -->
+  <!-- ========================= -->
+
   <footer>
-    <p>NYC Survival Score Project | Built for DTU Final Project | 2026</p>
+    <p>
+      NYC Survival Score Project |
+      Built for DTU Final Project | 2026
+    </p>
   </footer>
 
+
+  <!-- ========================= -->
+  <!-- Scripts -->
+  <!-- ========================= -->
+
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
   <script src="js/resourceChart.js"></script>
+
   <script src="js/main.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>NYC Survival Score Map</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Leaflet -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #05070b;
+            font-family: Inter, sans-serif;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .leaflet-container {
+            background: #05070b;
+        }
+
+        /* Tooltip styling */
+
+        .leaflet-tooltip {
+            background: rgba(10, 14, 22, 0.96);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 14px;
+            color: white;
+            font-family: Inter, sans-serif;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .tooltip-card h3 {
+            margin: 0 0 10px;
+            color: #ffd85c;
+            font-size: 18px;
+        }
+
+        .tooltip-section {
+            margin-top: 10px;
+        }
+
+        .tooltip-section ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+
+        .tooltip-section li {
+            margin-bottom: 4px;
+        }
+
+        /* Legend */
+
+        .legend-box {
+            background: rgba(10,14,22,0.92);
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            min-width: 190px;
+        }
+
+        .legend-box h4 {
+            margin: 0 0 10px;
+            color: #ffd85c;
+            font-size: 15px;
+        }
+
+        .legend-item {
+            margin-bottom: 8px;
+        }
+
+        .green { color: #4ade80; }
+        .yellow { color: #facc15; }
+        .red { color: #ef4444; }
+
+    </style>
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<script>
+
+    // ===============================
+    // Create Map
+    // ===============================
+
+    const map = L.map('map', {
+        zoomControl: true
+    }).setView([40.7128, -74.0060], 11);
+
+    // ===============================
+    // Dark Basemap
+    // ===============================
+
+    L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        }
+    ).addTo(map);
+
+    // ===============================
+    // Survival Score Data
+    // ===============================
+
+    const survivalPoints = [
+
+        {
+            lat: 40.7580,
+            lng: -73.9855,
+            score: 88,
+            fountains: 14,
+            toilets: 6,
+            linknyc: 28,
+            risk: "Low",
+            insight: "Strong infrastructure accessibility and dense public support."
+        },
+
+        {
+            lat: 40.7306,
+            lng: -73.9352,
+            score: 61,
+            fountains: 7,
+            toilets: 2,
+            linknyc: 12,
+            risk: "Moderate",
+            insight: "Moderate accessibility with uneven infrastructure coverage."
+        },
+
+        {
+            lat: 40.8448,
+            lng: -73.8648,
+            score: 38,
+            fountains: 2,
+            toilets: 1,
+            linknyc: 4,
+            risk: "High",
+            insight: "Sparse infrastructure and elevated environmental stressors."
+        },
+
+        {
+            lat: 40.6782,
+            lng: -73.9442,
+            score: 73,
+            fountains: 8,
+            toilets: 4,
+            linknyc: 16,
+            risk: "Moderate",
+            insight: "Good resource accessibility with moderate risk exposure."
+        },
+
+        {
+            lat: 40.5795,
+            lng: -73.8371,
+            score: 29,
+            fountains: 1,
+            toilets: 0,
+            linknyc: 3,
+            risk: "High",
+            insight: "Long distances between critical support infrastructure."
+        }
+
+    ];
+
+    // ===============================
+    // Color Function
+    // ===============================
+
+    function getColor(score) {
+
+        if (score >= 75) {
+            return "#4ade80";
+        }
+
+        if (score >= 50) {
+            return "#facc15";
+        }
+
+        return "#ef4444";
+    }
+
+    // ===============================
+    // Create Markers
+    // ===============================
+
+    survivalPoints.forEach(point => {
+
+        const tooltipHTML = `
+            <div class="tooltip-card">
+
+                <h3>Survival Score: ${point.score}</h3>
+
+                <div class="tooltip-section">
+                    <strong>Nearby resources</strong>
+
+                    <ul>
+                        <li>${point.fountains} fountains</li>
+                        <li>${point.toilets} toilets</li>
+                        <li>${point.linknyc} LinkNYC kiosks</li>
+                    </ul>
+                </div>
+
+                <div class="tooltip-section">
+                    <strong>Risk exposure</strong>
+
+                    <p>${point.risk}</p>
+                </div>
+
+                <div class="tooltip-section">
+                    <strong>Interpretation</strong>
+
+                    <p>${point.insight}</p>
+                </div>
+
+            </div>
+        `;
+
+        L.circleMarker([point.lat, point.lng], {
+
+            radius: point.score / 5,
+
+            fillColor: getColor(point.score),
+
+            color: "#ffffff",
+
+            weight: 1,
+
+            opacity: 1,
+
+            fillOpacity: 0.5
+
+        })
+
+        .bindTooltip(tooltipHTML, {
+
+            direction: "top",
+
+            sticky: true,
+
+            opacity: 1
+
+        })
+
+        .on("mouseover", function() {
+
+            this.setStyle({
+                fillOpacity: 0.9,
+                weight: 2
+            });
+
+        })
+
+        .on("mouseout", function() {
+
+            this.setStyle({
+                fillOpacity: 0.5,
+                weight: 1
+            });
+
+        })
+
+        .addTo(map);
+
+    });
+
+    // ===============================
+    // Legend
+    // ===============================
+
+    const legend = L.control({ position: "bottomright" });
+
+    legend.onAdd = function () {
+
+        const div = L.DomUtil.create("div");
+
+        div.innerHTML = `
+            <div class="legend-box">
+
+                <h4>Survival Score</h4>
+
+                <div class="legend-item">
+                    <span class="green">●</span>
+                    High survivability
+                </div>
+
+                <div class="legend-item">
+                    <span class="yellow">●</span>
+                    Moderate survivability
+                </div>
+
+                <div class="legend-item">
+                    <span class="red">●</span>
+                    Resource vulnerability
+                </div>
+
+            </div>
+        `;
+
+        return div;
+    };
+
+    legend.addTo(map);
+
+</script>
+
+</body>
+</html>
