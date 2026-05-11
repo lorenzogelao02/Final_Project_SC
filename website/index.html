@@ -255,9 +255,9 @@
     </section>
 
 
-    <!-- ========================= -->
-    <!-- Survival Score -->
-    <!-- ========================= -->
+  <!-- ========================= -->
+  <!-- Survival Score -->
+  <!-- ========================= -->
 
     <section class="scene" id="score-explanation">
 
@@ -268,25 +268,32 @@
         </h2>
 
         <p>
-          The Survival Score is a spatial accessibility index.
-          It does not measure homelessness directly.
-          Instead, it estimates how well different parts of NYC
-          are served by nearby survival-related resources
-          while accounting for nearby risk indicators.
+          The Survival Score is a spatial accessibility model designed to estimate
+          how well different parts of New York City are supported by nearby
+          survival-related public infrastructure.
+          Rather than measuring homelessness directly, the score evaluates
+          how accessible essential urban resources are within the surrounding area.
+        </p>
+
+        <p>
+          The model combines spatial proximity to public resources such as
+          drinking fountains, public toilets, LinkNYC kiosks,
+          and drop-in centers, while also accounting for nearby
+          environmental strain through drug-related crime incidents.
         </p>
 
         <div class="formula-box">
 
           <h3>
-            Survival Score = 70% Resource Access − 30% Risk Exposure
+            Survival Score =
+            Resource Accessibility − Environmental Risk
           </h3>
 
           <p>
-            Resource accessibility increases with spatial proximity
-            to drinking fountains, public toilets, drop-in centers,
-            and LinkNYC kiosks.
-            Risk exposure increases with nearby drug-related crime hotspots
-            and shelter quality issues.
+            Nearby infrastructure increases the score,
+            while surrounding crime exposure reduces it.
+            Each resource type contributes differently based on
+            its potential importance for short-term urban survivability.
           </p>
 
         </div>
@@ -295,32 +302,55 @@
 
           <div class="grid-item positive">
 
-            <h3>Access Factors</h3>
+            <h3>
+              Resource Accessibility
+            </h3>
 
             <p>
-              Water, toilets, Wi-Fi, charging,
-              drop-in centers, and other public support infrastructure.
+              The model evaluates proximity to drinking fountains,
+              public toilets, LinkNYC hubs, and drop-in centers.
+              Areas with denser infrastructure clusters receive higher scores,
+              reflecting stronger access to essential urban support systems.
             </p>
 
           </div>
 
           <div class="grid-item negative">
 
-            <h3>Risk Factors</h3>
+            <h3>
+              Environmental Risk
+            </h3>
 
             <p>
-              Drug-related crime hotspots and shelter repair violations
-              used as proxies for environmental and social vulnerability.
+              Nearby drug-related crime incidents are incorporated
+              as indicators of environmental strain and vulnerability.
+              Higher concentrations of nearby incidents reduce the
+              overall Survival Score.
             </p>
 
           </div>
 
         </div>
 
+        <div class="formula-box" style="margin-top: 2rem;">
+
+          <h3>
+            Weighted Spatial Model
+          </h3>
+
+          <p>
+            Different infrastructure types are weighted differently
+            within the score calculation.
+            Drop-in centers and public toilets contribute more heavily
+            than fountains or Wi-Fi hubs due to their broader support value,
+            while crime exposure introduces a spatial penalty factor.
+          </p>
+
+        </div>
+
       </div>
 
     </section>
-
 
     <!-- ========================= -->
     <!-- Findings -->
