@@ -25,6 +25,35 @@
                     top: 0.0%;
                 }
                 .leaflet-container { font-size: 1rem; }
+
+                .leaflet-tooltip {
+                    background: rgba(10, 14, 22, 0.96);
+                    border: 1px solid rgba(255,255,255,0.08);
+                    border-radius: 16px;
+                    padding: 14px;
+                    color: white;
+                    font-family: Inter, sans-serif;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+                }
+
+                .tooltip-card h3 {
+                    margin: 0 0 10px;
+                    color: #ffd85c;
+                    font-size: 18px;
+                }
+
+                .tooltip-section {
+                    margin-top: 10px;
+                }
+
+                .tooltip-section ul {
+                    margin: 6px 0 0 18px;
+                    padding: 0;
+                }
+
+                .tooltip-section li {
+                    margin-bottom: 4px;
+                }
             </style>
 
             <style>html, body {
@@ -119,7 +148,83 @@
         
     
             heat_map_a8a3d8afbeea032b0f0123f1258ab9e3.addTo(map_ed1713bce4c5085d655b94b355ccab5c);
-        
+
+            const survivalPoints = [
+                {
+                    lat: 40.7128,
+                    lng: -74.0060,
+                    score: 82,
+                    fountains: 12,
+                    toilets: 4,
+                    linknyc: 19,
+                    risk: "Moderate"
+                },
+
+                {
+                    lat: 40.7306,
+                    lng: -73.9352,
+                    score: 58,
+                    fountains: 4,
+                    toilets: 1,
+                    linknyc: 7,
+                    risk: "High"
+                }
+                ];
+
+                survivalPoints.forEach(point => {
+
+    const tooltipHTML = `
+    <div class="tooltip-card">
+        <h3>Survival Score: ${point.score}</h3>
+
+        <div class="tooltip-section">
+        <strong>Nearby resources</strong>
+        <ul>
+            <li>${point.fountains} fountains</li>
+            <li>${point.toilets} toilets</li>
+            <li>${point.linknyc} LinkNYC kiosks</li>
+        </ul>
+        </div>
+
+        <div class="tooltip-section">
+        <strong>Risk exposure</strong>
+        <p>${point.risk}</p>
+        </div>
+    </div>
+    `;
+
+    L.circleMarker([point.lat, point.lng], {
+    radius: 14,
+    fillColor: "#ffd85c",
+    color: "#ffffff",
+    weight: 1,
+    opacity: 0.8,
+    fillOpacity: 0.15
+    })
+
+    .bindTooltip(tooltipHTML, {
+    direction: "top",
+    sticky: true,
+    opacity: 1
+    })
+
+    .on("mouseover", function(e) {
+        this.setStyle({
+            fillOpacity: 0.45,
+            weight: 2
+        });
+    })
+
+    .on("mouseout", function(e) {
+        this.setStyle({
+            fillOpacity: 0.35,
+            weight: 1
+        });
+    })
+
+    .addTo(map_ed1713bce4c5085d655b94b355ccab5c);
+
+    });
     
             var marker_cluster_5f56863a88f0e9f1d85885e9e1059363 = L.markerClusterGroup(
                 {
