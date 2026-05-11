@@ -123,62 +123,227 @@
 
     const survivalPoints = [
 
-        {
-            lat: 40.7580,
-            lng: -73.9855,
-            score: 88,
-            fountains: 14,
-            toilets: 6,
-            linknyc: 28,
-            risk: "Low",
-            insight: "Strong infrastructure accessibility and dense public support."
-        },
+    {
+        lat: 40.7580,
+        lng: -73.9855,
+        score: 88,
+        fountains: 14,
+        toilets: 6,
+        linknyc: 28,
+        risk: "Low",
+        insight: "Strong infrastructure accessibility and dense public support."
+    },
 
-        {
-            lat: 40.7306,
-            lng: -73.9352,
-            score: 61,
-            fountains: 7,
-            toilets: 2,
-            linknyc: 12,
-            risk: "Moderate",
-            insight: "Moderate accessibility with uneven infrastructure coverage."
-        },
+    {
+        lat: 40.7614,
+        lng: -73.9776,
+        score: 84,
+        fountains: 12,
+        toilets: 5,
+        linknyc: 24,
+        risk: "Low",
+        insight: "Dense Midtown infrastructure creates strong accessibility."
+    },
 
-        {
-            lat: 40.8448,
-            lng: -73.8648,
-            score: 38,
-            fountains: 2,
-            toilets: 1,
-            linknyc: 4,
-            risk: "High",
-            insight: "Sparse infrastructure and elevated environmental stressors."
-        },
+    {
+        lat: 40.7484,
+        lng: -73.9857,
+        score: 81,
+        fountains: 11,
+        toilets: 5,
+        linknyc: 20,
+        risk: "Moderate",
+        insight: "High resource concentration despite urban pressure."
+    },
 
-        {
-            lat: 40.6782,
-            lng: -73.9442,
-            score: 73,
-            fountains: 8,
-            toilets: 4,
-            linknyc: 16,
-            risk: "Moderate",
-            insight: "Good resource accessibility with moderate risk exposure."
-        },
+    {
+        lat: 40.7306,
+        lng: -73.9352,
+        score: 61,
+        fountains: 7,
+        toilets: 2,
+        linknyc: 12,
+        risk: "Moderate",
+        insight: "Moderate accessibility with uneven infrastructure coverage."
+    },
 
-        {
-            lat: 40.5795,
-            lng: -73.8371,
-            score: 29,
-            fountains: 1,
-            toilets: 0,
-            linknyc: 3,
-            risk: "High",
-            insight: "Long distances between critical support infrastructure."
-        }
+    {
+        lat: 40.7223,
+        lng: -73.9874,
+        score: 67,
+        fountains: 8,
+        toilets: 3,
+        linknyc: 15,
+        risk: "Moderate",
+        insight: "Good public support coverage with moderate stress indicators."
+    },
 
-    ];
+    {
+        lat: 40.7060,
+        lng: -74.0086,
+        score: 79,
+        fountains: 10,
+        toilets: 4,
+        linknyc: 18,
+        risk: "Low",
+        insight: "Strong lower Manhattan accessibility network."
+    },
+
+    {
+        lat: 40.6998,
+        lng: -73.9492,
+        score: 58,
+        fountains: 5,
+        toilets: 2,
+        linknyc: 10,
+        risk: "Moderate",
+        insight: "Mixed infrastructure accessibility."
+    },
+
+    {
+        lat: 40.6782,
+        lng: -73.9442,
+        score: 73,
+        fountains: 8,
+        toilets: 4,
+        linknyc: 16,
+        risk: "Moderate",
+        insight: "Good resource accessibility with moderate risk exposure."
+    },
+
+    {
+        lat: 40.6501,
+        lng: -73.9496,
+        score: 52,
+        fountains: 4,
+        toilets: 2,
+        linknyc: 8,
+        risk: "Moderate",
+        insight: "Lower infrastructure density across residential areas."
+    },
+
+    {
+        lat: 40.8448,
+        lng: -73.8648,
+        score: 38,
+        fountains: 2,
+        toilets: 1,
+        linknyc: 4,
+        risk: "High",
+        insight: "Sparse infrastructure and elevated environmental stressors."
+    },
+
+    {
+        lat: 40.8548,
+        lng: -73.8900,
+        score: 42,
+        fountains: 3,
+        toilets: 1,
+        linknyc: 5,
+        risk: "High",
+        insight: "Resource deserts increase travel distance between services."
+    },
+
+    {
+        lat: 40.8176,
+        lng: -73.9182,
+        score: 46,
+        fountains: 4,
+        toilets: 1,
+        linknyc: 6,
+        risk: "High",
+        insight: "Infrastructure strain overlaps with elevated risk exposure."
+    },
+
+    {
+        lat: 40.5795,
+        lng: -73.8371,
+        score: 29,
+        fountains: 1,
+        toilets: 0,
+        linknyc: 3,
+        risk: "High",
+        insight: "Long distances between critical support infrastructure."
+    },
+
+    {
+        lat: 40.5965,
+        lng: -73.7528,
+        score: 33,
+        fountains: 1,
+        toilets: 1,
+        linknyc: 2,
+        risk: "High",
+        insight: "Peripheral areas experience weaker infrastructure coverage."
+    },
+
+    {
+        lat: 40.7282,
+        lng: -73.7949,
+        score: 55,
+        fountains: 5,
+        toilets: 2,
+        linknyc: 9,
+        risk: "Moderate",
+        insight: "Moderate accessibility with fragmented support services."
+    },
+
+    {
+        lat: 40.7421,
+        lng: -73.7694,
+        score: 49,
+        fountains: 4,
+        toilets: 1,
+        linknyc: 7,
+        risk: "Moderate",
+        insight: "Transit-heavy corridors improve partial accessibility."
+    },
+
+    {
+        lat: 40.7831,
+        lng: -73.9712,
+        score: 90,
+        fountains: 15,
+        toilets: 7,
+        linknyc: 30,
+        risk: "Low",
+        insight: "Exceptional access to public amenities and infrastructure."
+    },
+
+    {
+        lat: 40.7681,
+        lng: -73.9819,
+        score: 86,
+        fountains: 13,
+        toilets: 6,
+        linknyc: 26,
+        risk: "Low",
+        insight: "Dense urban core with strong survival infrastructure."
+    },
+
+    {
+        lat: 40.7075,
+        lng: -73.9626,
+        score: 64,
+        fountains: 6,
+        toilets: 3,
+        linknyc: 13,
+        risk: "Moderate",
+        insight: "Mixed but relatively accessible infrastructure landscape."
+    },
+
+    {
+        lat: 40.6892,
+        lng: -74.0445,
+        score: 75,
+        fountains: 9,
+        toilets: 4,
+        linknyc: 17,
+        risk: "Low",
+        insight: "Strong waterfront infrastructure accessibility."
+    }
+
+];
 
     // ===============================
     // Color Function
