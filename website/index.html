@@ -254,7 +254,69 @@
 
     </section>
 
-  <!-- ========================= -->
+
+    <!-- ========================= -->
+    <!-- Chart -->
+    <!-- ========================= -->
+
+    <section class="scene" id="resource-chart-section">
+
+      <div class="content-wrapper">
+
+        <h2>
+          Resource Distribution by Borough
+        </h2>
+
+        <p>
+          The chart below compares the number of drinking fountains,
+          public toilets, drop-in centers,
+          and LinkNYC kiosks across boroughs.
+          Because the dataset sizes differ greatly,
+          the y-axis uses a logarithmic scale.
+        </p>
+
+        <div id="resourceChart"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Infrastructure Explorer -->
+    <!-- ========================= -->
+
+    <section id="map-section">
+
+      <div class="map-controls">
+
+        <h2>
+          Infrastructure & Risk Explorer
+        </h2>
+
+        <p>
+          Explore the spatial distribution of survival-related infrastructure
+          and environmental risk indicators across New York City.
+          Toggle layers to investigate fountains,
+          toilets, shelters, LinkNYC kiosks,
+          and crime hotspots.
+        </p>
+
+      </div>
+
+      <div class="map-wrapper">
+
+        <iframe
+          src="final_survival_map.html"
+          id="survival-map-frame"
+          title="Infrastructure & Risk Explorer">
+        </iframe>
+
+      </div>
+
+    </section>
+
+      <!-- ========================= -->
   <!-- Survival Score -->
   <!-- ========================= -->
 
@@ -351,137 +413,6 @@
 
     </section>
 
-    <!-- ========================= -->
-    <!-- Findings -->
-    <!-- ========================= -->
-
-    <section class="scene" id="findings">
-
-      <div class="content-wrapper">
-
-        <h2>
-          What the Data Reveals
-        </h2>
-
-        <p>
-          Survival infrastructure is not evenly distributed.
-          Some areas have dense clusters of public amenities,
-          while others have large gaps between basic services.
-          This means that a person’s ability to access help
-          may depend heavily on where they are in the city.
-        </p>
-
-        <div class="insight-grid">
-
-          <div class="insight-card">
-
-            <h3>
-              Resource density is unequal
-            </h3>
-
-            <p>
-              Public amenities are concentrated in specific parts of the city,
-              creating stronger access in some neighborhoods
-              and weaker access in others.
-            </p>
-
-          </div>
-
-          <div class="insight-card">
-
-            <h3>
-              Distance matters
-            </h3>
-
-            <p>
-              A city can contain many resources overall while still leaving
-              specific areas underserved if resources are too far apart.
-            </p>
-
-          </div>
-
-          <div class="insight-card">
-
-            <h3>
-              Risk and access overlap
-            </h3>
-
-            <p>
-              Some locations combine lower access to basic resources
-              with higher exposure to risk indicators,
-              producing lower Survival Scores.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ========================= -->
-    <!-- Chart -->
-    <!-- ========================= -->
-
-    <section class="scene" id="resource-chart-section">
-
-      <div class="content-wrapper">
-
-        <h2>
-          Resource Distribution by Borough
-        </h2>
-
-        <p>
-          The chart below compares the number of drinking fountains,
-          public toilets, drop-in centers,
-          and LinkNYC kiosks across boroughs.
-          Because the dataset sizes differ greatly,
-          the y-axis uses a logarithmic scale.
-        </p>
-
-        <div id="resourceChart"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ========================= -->
-    <!-- Infrastructure Explorer -->
-    <!-- ========================= -->
-
-    <section id="map-section">
-
-      <div class="map-controls">
-
-        <h2>
-          Infrastructure & Risk Explorer
-        </h2>
-
-        <p>
-          Explore the spatial distribution of survival-related infrastructure
-          and environmental risk indicators across New York City.
-          Toggle layers to investigate fountains,
-          toilets, shelters, LinkNYC kiosks,
-          and crime hotspots.
-        </p>
-
-      </div>
-
-      <div class="map-wrapper">
-
-        <iframe
-          src="final_survival_map.html"
-          id="survival-map-frame"
-          title="Infrastructure & Risk Explorer">
-        </iframe>
-
-      </div>
-
-    </section>
-
 
     <!-- ========================= -->
     <!-- Survival Score Map -->
@@ -515,6 +446,122 @@
           id="survival-score-map-frame"
           title="NYC Survival Score Map">
         </iframe>
+
+      </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Findings -->
+    <!-- ========================= -->
+
+    <section class="scene" id="findings">
+
+      <div class="content-wrapper">
+
+        <h2>
+          What the Data Reveals
+        </h2>
+
+        <p>
+          When the datasets are combined into a single geographic system,
+          clear spatial inequalities begin to appear across New York City.
+          Essential survival resources, as drinking water, toilets,
+          shelters, internet access, and emergency support services
+          are not distributed evenly throughout the urban landscape.
+        </p>
+
+        <p>
+          Some neighborhoods contain dense networks of public infrastructure,
+          where multiple resources can be reached within only a few minutes.
+          Other areas contain large gaps between services, forcing vulnerable
+          individuals to travel significantly farther to access basic needs.
+          For people living in unstable conditions, these distances can become
+          critical barriers affecting safety, health, communication, hygiene,
+          and access to support systems.
+        </p>
+
+        <p>
+          The analysis also reveals that resource accessibility and urban risk
+          often overlap in complex ways. Certain parts of the city provide
+          relatively strong access to support infrastructure while simultaneously
+          showing high concentrations of drug related crime. Other areas suffer
+          from both low resource density and increased exposure to risk,
+          producing some of the lowest Survival Scores in the city.
+        </p>
+
+        <p>
+          The project demonstrates that survival in a city is not only about
+          whether resources exist overall, but whether they are realistically
+          accessible within the spaces people move through every day.
+          Even in a city with thousands of public services,
+          accessibility remains highly uneven.
+        </p>
+
+        <div class="insight-grid">
+
+          <div class="insight-card">
+
+            <h3>
+              Resource density is unequal
+            </h3>
+
+            <p>
+              Public infrastructure is heavily concentrated in certain parts
+              of Manhattan and central urban areas, while outer neighborhoods
+              often contain significantly fewer nearby resources.
+              This creates major differences in accessibility depending on location.
+            </p>
+
+          </div>
+
+          <div class="insight-card">
+
+            <h3>
+              Distance directly affects survival
+            </h3>
+
+            <p>
+              Access depends not only on how many resources exist, 
+              but also on whether they are reachable within a reasonable distance.
+              Long distances between water,
+              toilets, shelters, or support centers can make daily survival
+              substantially more difficult for vulnerable populations.
+            </p>
+
+          </div>
+
+          <div class="insight-card">
+
+            <h3>
+              Risk and support coexist
+            </h3>
+
+            <p>
+              Some areas with strong support infrastructure also experience
+              higher concentrations of crime indicators.
+              This creates environments where access to help exists,
+              but exposure to danger remains elevated at the same time.
+            </p>
+
+          </div>
+
+          <div class="insight-card">
+
+            <h3>
+              Survival is spatial
+            </h3>
+
+            <p>
+              The project highlights how geography itself shapes opportunity,
+              safety, and access to basic human needs.
+              A few blocks in the city can dramatically change the availability
+              of services and the overall Survival Score of an area.
+            </p>
+
+          </div>
+
+        </div>
 
       </div>
 

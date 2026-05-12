@@ -1,9 +1,9 @@
 const fallbackResourceData = [
-  { Borough: "Manhattan", Fountains: 650, Toilets: 4, Centers: 4, LinkNYC: 1200 },
-  { Borough: "Brooklyn", Fountains: 950, Toilets: 1, Centers: 2, LinkNYC: 520 },
-  { Borough: "Bronx", Fountains: 720, Toilets: 0, Centers: 1, LinkNYC: 210 },
-  { Borough: "Queens", Fountains: 880, Toilets: 1, Centers: 1, LinkNYC: 260 },
-  { Borough: "Staten Island", Fountains: 240, Toilets: 0, Centers: 1, LinkNYC: 60 }
+  { Borough: "Manhattan", Fountains: 909, Toilets: 2, Centers: 3, LinkNYC: 1231 },
+  { Borough: "Brooklyn", Fountains: 1118, Toilets: 3, Centers: 1, LinkNYC: 357 },
+  { Borough: "Bronx", Fountains: 590, Toilets: 1, Centers: 1, LinkNYC: 216 },
+  { Borough: "Queens", Fountains: 978, Toilets: 1, Centers: 2, LinkNYC: 401 },
+  { Borough: "Staten Island", Fountains: 254, Toilets: 0, Centers: 1, LinkNYC: 50 }
 ];
 
 function parseCSV(text) {
