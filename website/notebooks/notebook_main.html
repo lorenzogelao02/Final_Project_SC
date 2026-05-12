@@ -8211,7 +8211,7 @@ Census Rows: 8219
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Basic-stats">2. Basic stats<a class="anchor-link" href="#2.-Basic-stats">¶</a></h2><h3 id="Data-cleaning-and-preprocessing-choices">Data cleaning and preprocessing choices<a class="anchor-link" href="#Data-cleaning-and-preprocessing-choices">¶</a></h3><p>Our six source datasets were downloaded directly from NYC Open Data via their Socrata API. Each went through a shared cleaning pipeline before use.</p>
+<h3 id="Data-cleaning-and-preprocessing-choices">Data cleaning and preprocessing choices<a class="anchor-link" href="#Data-cleaning-and-preprocessing-choices">¶</a></h3><p>Our six source datasets were downloaded directly from NYC Open Data via their Socrata API. Each went through a shared cleaning pipeline before use.</p>
 <p><strong>Coordinate extraction and validation.</strong> Several datasets (drinking fountains, public toilets) store geometry as WKT strings in the format <code>POINT (longitude latitude)</code> — note the reversed order, which is a common WGS84 pitfall. We parsed these with a regex extractor and swapped the values into explicit <code>latitude</code> and <code>longitude</code> columns. For datasets that already provided separate coordinate columns (drop-in centers, LinkNYC, drug crime), we coerced them to numeric and dropped rows where conversion failed.</p>
 <p>After extraction we applied a spatial bounding box filter (latitude 40.0–42.0, longitude −75.0 to −72.0) to remove the null island at (0, 0) and any stray out-of-state points that passed numeric coercion. This was necessary because several rows had placeholder values rather than true missing data.</p>
 <p><strong>Borough standardization.</strong> Borough labels appeared in at least five different formats across the datasets — single letters (<code>M</code>, <code>B</code>, <code>X</code>, <code>Q</code>, <code>R</code>), two-letter codes (<code>MN</code>, <code>BK</code>, <code>BX</code>, <code>QN</code>, <code>SI</code>), mixed-case strings, and full names. We built a lookup map to normalize all of these to the five canonical full names so datasets could be joined or compared on a common key.</p>
@@ -382994,7 +382994,7 @@ Crime rows: 197354
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Contributions">Contributions<a class="anchor-link" href="#Contributions">¶</a></h2><ul>
-<li>Christoffer Frost — front-end site composition, interactive embedding, CSS/UX work, report of notebook/documentation, motivation section, design and storytelling in the websites layout, intro data reveals and Limitations.</li>
+<li>Christoffer Frost — front-end site composition, interactive embedding, CSS/UX work, report of notebook/documentation, motivation section, design and storytelling in the websites layout, intro, data reveals and Limitations.</li>
 <li>Lorenzo Gelao — data collection, preprocessing pipelines, cleaning scripts, infrastructure mapping layers, and Folium-based resource visualization generation.</li>
 <li>Michelle Mai — survival score methodology, survivability classification logic, interactive survival mapping, and notebook contributions related to genre analysis, narrative structure, visualizations and discussion.</li>
 </ul>
