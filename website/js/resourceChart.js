@@ -6,51 +6,11 @@ const fallbackResourceData = [
   { Borough: "Staten Island", Fountains: 254, Toilets: 0, Centers: 1, LinkNYC: 50 }
 ];
 
-function parseCSV(text) {
-  const lines = text.trim().split("\n");
-  const headers = lines[0].split(",").map(h => h.trim());
-
-  return lines.slice(1).map(line => {
-    const values = line.split(",").map(v => v.trim());
-    const row = {};
-
-    headers.forEach((header, index) => {
-      row[header || "Borough"] = values[index];
-    });
-
-    return row;
-  });
-}
-
-async function getResourceData() {
-  try {
-    const response = await fetch("assets/data/resource_summary.csv");
-
-    if (!response.ok) {
-      throw new Error("CSV file not found");
-    }
-
-    const text = await response.text();
-    const rows = parseCSV(text);
-
-    return rows.map(row => ({
-      Borough: row.Borough || row.borough || row.index || row[""] || "",
-      Fountains: Number(row.Fountains || 0),
-      Toilets: Number(row.Toilets || 0),
-      Centers: Number(row.Centers || 0),
-      LinkNYC: Number(row.LinkNYC || 0)
-    }));
-  } catch (error) {
-    console.warn("Using fallback chart data because resource_summary.csv could not be loaded.");
-    return fallbackResourceData;
-  }
-}
-
 async function loadResourceChart() {
   const chartDiv = document.getElementById("resourceChart");
   if (!chartDiv || typeof Plotly === "undefined") return;
 
-  const data = await getResourceData();
+  const data = fallbackResourceData;
   const boroughs = data.map(d => d.Borough);
 
   const resources = ["Fountains", "Toilets", "Centers", "LinkNYC"];
